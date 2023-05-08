@@ -1,90 +1,139 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-html,body{
-    width: 100%;
-    height: 100%;
+html,
+body {
+  width: 100%;
+  height: 100%;
 }
-.main_div{
-    display:grid;
-    place-items:center;
-    width: 100vw;
-    height: 100vh;
-    background-color: #f6f6f6;
+.main_div {
+  display: grid;
+  place-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #f6f6f6;
 }
-.music_container{
-    width: 350px;
-    height: 550px;
-    background-color: #ffffff;
-    border-radius: 20px;
-    padding: 30px;text-align: center;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+.music_container {
+  width: 350px;
+  height: 550px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: 30px;
+  text-align: center;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
-#title,#artist{
-    width: 100%;
-    padding: 0.5vw 0.5vw;
-    margin-bottom: 0.5vw;
-}
-
-.music_controls{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    padding: 0.5vw 0.5vw;
-    margin-top: 1.5vw;
-}
-.music_controls>#play,#back,#forward{
-    font-size: 1.5vw;
-    gap: 20px;
-    cursor: pointer;
+#title,
+#artist {
+  width: 100%;
+  padding: 0.5vw 0.5vw;
+  margin-bottom: 0.5vw;
 }
 
-.music_controls>#play{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 50px;
-    height: 50px;
-    background-color: black;
-    color: #ffffff;
-    border-radius: 50%;
+.music_controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0.5vw 0.5vw;
+  margin-top: 1.5vw;
 }
-.music_controls>#play:hover{
-    background-color: #fff;
-    color:black;
-    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+.music_controls > #play,
+#back,
+#forward {
+  font-size: 1.5vw;
+  gap: 20px;
+  cursor: pointer;
 }
-.music_controls>#back:hover,#forward:hover{
+
+.music_controls > #play {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  background-color: black;
+  color: #ffffff;
+  border-radius: 50%;
+}
+.music_controls > #play:hover {
+  background-color: #fff;
+  color: black;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.music_controls > #back:hover,
+#forward:hover {
   color: grey;
-  text-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;;
+  text-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
-.img-container{
-    width: 250px;
-    height: 250px;
-    margin: auto;
-    margin-top: 1vw;
+.img-container {
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  margin-top: 1vw;
 }
-.img-container img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    border-radius: 50%;
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 50%;
 }
 
 /*css animation*/
-.anime{
-    animation: rotatePlayer 3s linear infinite;
+.anime {
+  animation: rotatePlayer 3s linear infinite;
 }
 
 @keyframes rotatePlayer {
-  from{
-     transform: rotate(0deg);
-  }  
-  to{
-     transform: rotate(360deg);
+  from {
+    transform: rotate(0deg);
   }
-} 
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ProgressBar_Container {
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+  margin-top: 10px;
+}
+.progrss_div {
+    position: relative;
+  width: 100%;
+  height: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    margin-top: 10px;
+    transition: all 1s linear;
+    appearance: none;
+    cursor: pointer;
+    border-radius: 40px;
+
+}
+.progress{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: black;
+    transition: all 1s linear;
+    appearance: none;
+    cursor: pointer;
+    border-radius: 40px;
+}
+.progress_duration_meter{
+    width: 100%;
+    padding: 0.2vw 0.2vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

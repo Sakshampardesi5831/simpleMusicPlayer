@@ -3,6 +3,10 @@ const title=document.getElementById('title');
 const artist=document.getElementById('artist')
 const back=document.getElementById('back');
 const forward=document.getElementById('forward');
+const progress_div=document.getElementById("progrss_div");
+const progress=document.getElementById("progress");
+let fullduration=document.getElementById("duration");
+const current_time=document.getElementById("current_time");
 const audio=document.querySelector("audio");
 const img=document.querySelector("img");
 let isPlaying=false;
@@ -62,6 +66,51 @@ const prevSongs =()=>{
     loadSongs(songs[songsIndex]);
     playMusic();
 }
+
+
+//progress js works
+/*
+  FORMULA FOR MUSIC PROGRESS
+*/
+audio.addEventListener("timeupdate",(e)=>{
+//    console.log(e) console.log(currentTime) console.log(duration);;;
+   const {currentTime,duration}=e.srcElement;
+   let progrss_time=(currentTime/duration)*100;
+   progress.style.width=`${progrss_time}%`;
+
+   //music Duration update duration come in second 
+   console.log(duration);
+   let min_duration=Math.floor(duration/60);
+   let sec_duration=Math.floor(duration%60);
+   let total_du=`${min_duration}:${sec_duration}`;
+   if(duration){ 
+    fullduration.textContent=`${total_du}`;
+   }
+
+   //current time 
+   let curr_min=Math.floor(currentTime/60);
+   let curr_sec=Math.floor(currentTime%60);
+    if(curr_sec<10){
+        curr_sec=`0${curr_sec}`
+    }
+    let current_du=`${curr_min}:${curr_sec}`;
+   if(currentTime){
+     current_time.textContent=`${current_du}`;
+   } 
+   //progress on click functionality
+   
+})
+
+progress_div.addEventListener("click",function(event){
+    console.log(event);
+    const {duration}=audio;
+    let move_progress=(event.offsetX/event.srcElement.clientWidth)*duration;
+    console.log(move_progress)
+    audio.currentTime=move_progress;
+})
+
+//next song 
+audio.addEventListener("ended",nextSong);
 forward.addEventListener("click",nextSong);
 back.addEventListener("click",prevSongs);
 
