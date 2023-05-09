@@ -97,8 +97,6 @@ audio.addEventListener("timeupdate",(e)=>{
    if(currentTime){
      current_time.textContent=`${current_du}`;
    } 
-   //progress on click functionality
-   
 })
 
 progress_div.addEventListener("click",function(event){
